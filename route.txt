@@ -1,0 +1,22 @@
++--------+----------+----------------------+------+------------------------------------------------------------+-----------------------------------+
+| Domain | Method   | URI                  | Name | Action                                                     | Middleware                        |
++--------+----------+----------------------+------+------------------------------------------------------------+-----------------------------------+
+|        | GET|HEAD | /                    |      | Closure                                                    | web                               |
+|        | POST     | api/create           |      | App\Http\Controllers\ProductController@store               | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | DELETE   | api/delete/{product} |      | App\Http\Controllers\ProductController@destroy             | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | GET|HEAD | api/get_user         |      | App\Http\Controllers\ApiController@get_user                | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | POST     | api/login            |      | App\Http\Controllers\ApiController@authenticate            | api                               |
+|        | GET|HEAD | api/logout           |      | App\Http\Controllers\ApiController@logout                  | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | GET|HEAD | api/products         |      | App\Http\Controllers\ProductController@index               | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | GET|HEAD | api/products/{id}    |      | App\Http\Controllers\ProductController@show                | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | POST     | api/register         |      | App\Http\Controllers\ApiController@register                | api                               |
+|        | PUT      | api/update/{product} |      | App\Http\Controllers\ProductController@update              | api                               |
+|        |          |                      |      |                                                            | App\Http\Middleware\JwtMiddleware |
+|        | GET|HEAD | sanctum/csrf-cookie  |      | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show | web                               |
++--------+----------+----------------------+------+------------------------------------------------------------+-----------------------------------+
