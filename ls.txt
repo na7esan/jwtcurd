@@ -1,0 +1,6 @@
+total 9
+-rw-r--r-- 1 user 197610    0  8月 18 00:56 favicon.ico
+-rw-r--r-- 1 user 197610 1735  8月 18 00:56 index.php
+-rw-r--r-- 1 user 197610   24  8月 18 00:56 robots.txt
+lrwxrwxrwx 1 user 197610   48  9月  1 01:11 storage -> /c/Users/user/laravel/jwtcrud/storage/app/public
+-rw-r--r-- 1 user 197610 1183  8月 18 00:56 web.config

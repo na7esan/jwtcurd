@@ -48,27 +48,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        //Validate data
-        $data = $request->only('name', 'sku', 'price', 'quantity');
+        // Validate data
+        $data = $request->only('name', 'sku', 'price', 'quantity','pict');
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'sku' => 'required',
             'price' => 'required',
-            'quantity' => 'required'
+            'quantity' => 'required',
+            'pict' => 'image','max:5000',
         ]);
+
 
         //Send failed response if request is not valid
         if ($validator->fails()) {
             return response()->json(['error' => $validator->messages()], 200);
         }
 
+        // if ($request->hasFile('pict')) {
+        //     $data['pict']=$request->file('pict')->store('pictures','public');
+        // }
+
+        $data['pict'] = optional($request->file('pict'))->store('pictures', 'public');
         //Request is valid, create new product
         $product = $this->user->products()->create([
             'name' => $request->name,
             'sku' => $request->sku,
             'price' => $request->price,
-            'quantity' => $request->quantity
+            'quantity' => $request->quantity,
+            'pict' => $data['pict'],
         ]);
 
         //Product created, return success response

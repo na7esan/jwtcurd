@@ -20,6 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('sku');
             $table->integer('price');
             $table->integer('quantity');
+            $table->string('pict')->nullable();
+
             $table->timestamps();
 
             $table->foreign('user_id')
